@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">proyectosig</string>
+    <string name="title_activity_saliractivity">saliractivity</string>
+    <string name="title_activity_vistamapa">Map</string>
+</resources>
