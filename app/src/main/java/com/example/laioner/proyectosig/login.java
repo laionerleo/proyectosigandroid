@@ -49,15 +49,17 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         contraseña=(TextView)findViewById(R.id.contraseñatext);
         listausuario= new LinkedList();
         listacontraseña= new LinkedList();
-        listausuario.add("666");
-        listausuario.add("67777777");
-        listausuario.add("67888888");
+        listausuario.add("654321");
+        listausuario.add("666666");
+        listausuario.add("777777");
+        listausuario.add("60817621");
 
 
-        listacontraseña.add("123");
-        listacontraseña.add("987654321");
-        listacontraseña.add("111111");
 
+        listacontraseña.add("123456");
+        listacontraseña.add("55555");
+        listacontraseña.add("11385389");
+        listacontraseña.add("11385389");
 
     }
     JSONArray res = new JSONArray();
