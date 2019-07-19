@@ -49,34 +49,7 @@ import java.util.List;
 
 public class servicioubicacion  extends Service {
 
-    private IniciarActivity.serviceTask asyncTask ;
-    private IniciarActivity.SendToServer sendubicacion;
-    private String IP = "http://proyectobaseleo.000webhostapp.com/es/";
-    //private String IP = "http://192.168.0.15/proyectowebsig/es";
 
-    private String GET = IP + "Iniciar/";
-    private String  UBICACION= IP + "/ubicacion/";
-    private JSONObject respuestaJSON;
-    TextView contenido;
-    Button empezar;
-    TextView numero;
-    TextView contraseña;
-    private GoogleMap mMap;
-    LocationManager locationManager;
-    Location location; // location
-    double latitude; // latitude
-    double longitude; // longitude
-    // The minimum distance to change Updates in meters
-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 0; // 0 meters
-
-    // The minimum time between updates in milliseconds
-    private static final long MIN_TIME_BW_UPDATES = 1000; // 1 second
-
-    // Declaring a Location Manager
-    private Context mContext = null;
-    boolean isGPSEnabled = false;
-    boolean isNetworkEnabled = false;
-    boolean canGetLocation = false;
 
     @Nullable
     @Override

@@ -26,6 +26,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -42,6 +43,7 @@ public class vistamapa extends FragmentActivity implements OnMapReadyCallback, L
     private static final int LOCATION_REQUEST = 500;
     private LocationManager locManager;
     private LocationListener locListener;
+    Marker marcadoroficial;
 
     private static final String TAG = "MapActivity";
 
@@ -73,6 +75,13 @@ public class vistamapa extends FragmentActivity implements OnMapReadyCallback, L
         public void onLocationChanged(Location location) {
             longitude = location.getLongitude();
             latitude = location.getLatitude();
+
+            LatLng centro= new LatLng(latitude,longitude);
+            mMap.addMarker(new MarkerOptions().position(centro).title("aqui esta  nueva ubicacion"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(centro));
+            CameraUpdate camera = CameraUpdateFactory.newLatLngZoom(centro, 15);
+            mMap.moveCamera(camera);
+
         }
 
         @Override
@@ -113,20 +122,7 @@ public class vistamapa extends FragmentActivity implements OnMapReadyCallback, L
             mMap.addPolyline(new PolylineOptions().add(listaruta.get(i), listaruta.get(i+1)).width(10).color(Color.GREEN));
 
         }
-
-
-
-
-
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
 
@@ -143,7 +139,9 @@ public class vistamapa extends FragmentActivity implements OnMapReadyCallback, L
             longitude = myLocation.getLongitude();
             latitude = myLocation.getLatitude();
             LatLng centro= new LatLng(latitude,longitude);
-            mMap.addMarker(new MarkerOptions().position(centro).title("aqui esta el centro"));
+
+
+      marcadoroficial =mMap.addMarker(new MarkerOptions().position(centro).title("aqui esta el centro"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(centro));
             CameraUpdate camera = CameraUpdateFactory.newLatLngZoom(centro, 15);
             mMap.moveCamera(camera);
@@ -336,9 +334,11 @@ public class vistamapa extends FragmentActivity implements OnMapReadyCallback, L
         longitude =location.getLongitude();
         latitude = location.getLatitude();
         LatLng centro= new LatLng(latitude,longitude);
-        mMap.addMarker(new MarkerOptions().position(centro).title("aqui esta  nueva ubicacion"));
+      //  mMap.clear();
+
+        marcadoroficial=mMap.addMarker(new MarkerOptions().position(centro).title("aqui esta  nueva ubicacion"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(centro));
-        CameraUpdate camera = CameraUpdateFactory.newLatLngZoom(centro, 15);
+        CameraUpdate camera = CameraUpdateFactory.newLatLngZoom(centro, 12);
         mMap.moveCamera(camera);
 
 

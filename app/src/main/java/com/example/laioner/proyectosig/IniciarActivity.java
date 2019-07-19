@@ -90,8 +90,7 @@ private Context mContext = null;
         habilitador=false;
         terminar=(Button)findViewById(R.id.terminar);
         terminar.setOnClickListener(this);
-   //     numero=(TextView)findViewById(R.id.numero);
-     //   contraseña=(TextView)findViewById(R.id.contraseña);
+
         mContext = IniciarActivity.this;
 
         List<String> indices = new ArrayList<>();
@@ -104,7 +103,7 @@ private Context mContext = null;
         webSettings.setJavaScriptEnabled(true);
         myBrowser.setWebViewClient(new WebViewClient());
         myBrowser.setWebViewClient(new MyAppWebViewClient());
-        myBrowser.loadUrl("https://proyectobaseleo.000webhostapp.com/es/");
+       // myBrowser.loadUrl("https://proyectobaseleo.000webhostapp.com/es/");
 
     }
     JSONArray res = new JSONArray();
@@ -114,22 +113,13 @@ private Context mContext = null;
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.empezar:
-                //asyncTask = new serviceTask();
-               // Location l= getlocalizacion();
-                //String url=UBICACION +"/"+String.valueOf( l.getLatitude()) +"/"+String.valueOf( l.getLongitude()) + "/1";
-                //asyncTask.execute(IP+"/choferes/lista","1");
+
                 habilitador=true;
                 contenido.setText("habilitado y mandando");
-               // contenido.setText(GET+numero.getText()+contraseña.getText());
 
-                //sendubicacion=new  SendToServer();
-                //sendubicacion.execute(url,"1");
-
-               //Intent intent = new Intent(this, servicioubicacion.class);
-                //startService(intent);
                 break;
             case R.id.terminar:
-                //stopService(new Intent(this,servicioubicacion.class));
+
                 habilitador=false;
                 contenido.setText("desabilitado y sin mandar ubicacion");
                 break;
